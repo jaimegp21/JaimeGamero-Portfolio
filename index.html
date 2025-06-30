@@ -11,18 +11,23 @@
 
 <body>
   <!-- HEADER -->
-  <header class="header hidden-section">
-    <div class="logo">Jaime</div>
-    <nav class="nav">
-      <ul>
-        <li><a href="#inicio">INICIO</a></li>
-        <li><a href="#sobremi">SOBRE MÍ</a></li>
-        <li><a href="#skills">SKILLS</a></li>
-        <li><a href="#curriculum">CURRÍCULUM</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="header">
+  <div class="logo">Jaime</div>
+  <nav class="nav" id="nav-menu">
+    <ul>
+      <li><a href="#inicio" class="nav-link">INICIO</a></li>
+      <li><a href="#sobremi" class="nav-link">SOBRE MÍ</a></li>
+      <li><a href="#skills" class="nav-link">SKILLS</a></li>
+      <li><a href="#curriculum" class="nav-link">CURRÍCULUM</a></li>
+      <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" id="hamburger-btn">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+</header>
 
   <!-- SECCIÓN INICIO -->
   <section id="inicio" class="inicio hidden-section" >
@@ -118,7 +123,8 @@
 <section id="curriculum" class="curriculum hidden-section">
   <div class="contenido-curriculum">
     <h2>Currículum</h2>
-    <div class="timeline">
+
+    <div class="timeline desktop-timeline">
 
       <div class="timeline-item">
         <div class="timeline-content right">
@@ -172,14 +178,77 @@
       </div>
 
     </div>
+    <div class="accordion mobile-accordion">
+
+      <details>
+        <summary>
+          <span class="accordion-date">05/2025 - Actualidad</span>
+          <span class="accordion-title">Certificado de Profesionalidad nivel 3</span>
+        </summary>
+        <div class="accordion-content">
+          <p class="accordion-company">Desarrollo de aplicaciones con tecnologías web en Academia Millenium (Palma del Río).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="accordion-date">03/2024 - 06/2024</span>
+          <span class="accordion-title">Prácticas como desarrollador de software</span>
+        </summary>
+        <div class="accordion-content">
+          <p class="accordion-company">NTT DATA Spain Centers S.L.U | Sevilla, Andalucía</p>
+          <ul>
+            <li>Soporte técnico en herramientas para la Junta de Andalucía.</li>
+            <li>Realización de planes de prueba.</li>
+            <li>Gestión de tickets en Jira.</li>
+            <li>Micro desarrollos en Java.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="accordion-date">09/2022 - 06/2024</span>
+          <span class="accordion-title">Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</span>
+        </summary>
+        <div class="accordion-content">
+          <p class="accordion-company">MEDAC Sevilla Este | Sevilla (Andalucía)</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="accordion-date">06/2023 - 03/2025</span>
+          <span class="accordion-title">Técnico de hardware</span>
+        </summary>
+        <div class="accordion-content">
+          <p class="accordion-company">Goldtech | Fuente Palmera (Córdoba)</p>
+          <ul>
+            <li>Mantenimiento y reparación de ordenadores.</li>
+            <li>Mantenimiento y reparación de dispositivos móviles.</li>
+            <li>Atención al público.</li>
+          </ul>
+        </div>
+      </details>
+      
+      <details>
+        <summary>
+          <span class="accordion-date">09/2019 - 06/2021</span>
+          <span class="accordion-title">Técnico en Sistemas Microinformáticos y Redes</span>
+        </summary>
+        <div class="accordion-content">
+          <p class="accordion-company">I.E.S Antonio Gala | Palma del Río (Córdoba)</p>
+        </div>
+      </details>
+
+    </div>
     <div class="descarga-cv">
-      <a href="fuentes\CV_Jaime_Gamero (3) (1).pdf" download class="btn-descarga">
+      <a href="fuentes/CV_Jaime_Gamero (3) (1).pdf" download class="btn-descarga">
         Descargar CV <i class="fas fa-download"></i>
       </a>
     </div>
   </div>
 </section>
-
 
 <!-- SECCIÓN PORTFOLIO-->
 
@@ -216,7 +285,7 @@
         </div>
       </a>
 
-      <a href="https://github.com/TU_USUARIO_DE_GITHUB/FizzBuzz-Challenge" target="_blank" class="proyecto-card">
+      <a href="https://github.com/jaimegp21/FizzBuzz" target="_blank" class="proyecto-card">
         <img src="fuentes/fizzbuzz.PNG" alt="Captura del FizzBuzz Challenge">
         <div class="proyecto-info">
           <h3>FizzBuzz Challenge <i class="fab fa-github"></i></h3>

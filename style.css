@@ -608,39 +608,73 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
+/* Ocultar el acordeón en escritorio por defecto */
+.mobile-accordion {
+  display: none;
+}
 /* ================================== */
 /* ESTILOS RESPONSIVE */
 /* ================================== */
+
 @media (max-width: 768px) {
 
-  /* --- AJUSTES GENERALES --- */
   section {
-    padding: 60px 20px;
+    padding: 60px 20px; 
+    scroll-margin-top: 80px;
   }
 
-  /* --- HEADER Y NAVEGACIÓN --- */
+  /* --- HEADER Y MENÚ HAMBURGUESA --- */
   .header {
     padding: 15px 20px;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
+    flex-direction: row;
   }
-
+  .nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(17, 26, 36, 0.95);
+    backdrop-filter: blur(10px);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+  }
   .nav ul {
-    gap: 10px; 
-    flex-wrap: wrap; /*Permite que los enlaces pasen a la siguiente línea ordenadamente */
-    justify-content: center; /* Centra los enlaces cuando hay varias líneas */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
   }
-
   .nav a {
-    font-size: 14px;
-    padding: 5px; /* Añadimos un poco de padding para que no se peguen */
+    font-size: 20px;
+    padding: 15px 0;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; 
+  }
+  .hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+  }
+  .nav.nav-open {
+    right: 0;
   }
 
-  /* Para que el contenido no quede debajo del header más grande */
-  section {
-    scroll-margin-top: 140px; 
-  }
-  
   /* --- SECCIÓN INICIO Y SOBRE MÍ --- */
   .contenido-inicio,
   .contenido-sobremi {
@@ -649,43 +683,28 @@ section {
   }
 
   .texto-sobremi p {
-    text-align: left;
+    text-align: left; 
   }
-
   .texto-inicio h1 {
     font-size: 36px;
   }
-
   .texto-inicio h2 {
     font-size: 24px;
   }
 
-  /* --- TIMELINE DEL CURRÍCULUM --- */
-  .timeline::after {
-    left: 31px;
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 15px; /* Reducimos padding para dar más espacio */
-  }
-
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    left: 0;
-  }
-
-  .timeline-item::after {
-    left: 21px;
-  }
-
-  .timeline-content {
-    padding: 15px 20px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
+  /* --- CURRÍCULUM: OCULTAR TIMELINE Y MOSTRAR ACORDEÓN --- */
+  .desktop-timeline { display: none; }
+  .mobile-accordion { display: block; max-width: 500px; margin: 0 auto; text-align: left; }
+  details { background: #1a2c3a; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255, 255, 255, 0.1); }
+  summary { padding: 1rem; cursor: pointer; list-style: none; position: relative; font-weight: 600; }
+  summary::before { content: '›'; position: absolute; right: 1rem; font-size: 1.5em; transform: rotate(90deg); transition: transform 0.2s; }
+  details[open] > summary::before { transform: rotate(-90deg); }
+  .accordion-title { color: white; }
+  .accordion-date { display: block; color: #00ffff; font-size: 0.8em; margin-bottom: 5px; }
+  .accordion-content { padding: 0 1rem 1rem 1rem; }
+  .accordion-company { font-style: italic; margin-bottom: 10px; }
+  .accordion-content ul { list-style: disc; padding-left: 20px; }
+  
   /* --- SKILLS --- */
   .carrusel-skills {
     justify-content: flex-start;
@@ -701,13 +720,13 @@ section {
     flex-direction: column;
     text-align: center;
   }
-  
   .footer-col h4::before {
     left: 50%;
     transform: translateX(-50%);
   }
-  
-  .social-links {
-    text-align: center;
-  }
+}
+
+/* Ocultar el menú de hamburguesa en escritorio */
+.hamburger {
+  display: none;
 }
