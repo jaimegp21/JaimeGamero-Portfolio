@@ -607,3 +607,107 @@ section {
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ================================== */
+/* ESTILOS RESPONSIVE */
+/* ================================== */
+@media (max-width: 768px) {
+
+  /* --- AJUSTES GENERALES --- */
+  section {
+    padding: 60px 20px;
+  }
+
+  /* --- HEADER Y NAVEGACIÓN --- */
+  .header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav ul {
+    gap: 10px; 
+    flex-wrap: wrap; /*Permite que los enlaces pasen a la siguiente línea ordenadamente */
+    justify-content: center; /* Centra los enlaces cuando hay varias líneas */
+  }
+
+  .nav a {
+    font-size: 14px;
+    padding: 5px; /* Añadimos un poco de padding para que no se peguen */
+  }
+
+  /* Para que el contenido no quede debajo del header más grande */
+  section {
+    scroll-margin-top: 140px; 
+  }
+  
+  /* --- SECCIÓN INICIO Y SOBRE MÍ --- */
+  .contenido-inicio,
+  .contenido-sobremi {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto-sobremi p {
+    text-align: left;
+  }
+
+  .texto-inicio h1 {
+    font-size: 36px;
+  }
+
+  .texto-inicio h2 {
+    font-size: 24px;
+  }
+
+  /* --- TIMELINE DEL CURRÍCULUM --- */
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 15px; /* Reducimos padding para dar más espacio */
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline-item::after {
+    left: 21px;
+  }
+
+  .timeline-content {
+    padding: 15px 20px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* --- SKILLS --- */
+  .carrusel-skills {
+    justify-content: flex-start;
+  }
+  
+  /* --- PORTFOLIO --- */
+  .proyectos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* --- FOOTER --- */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-col h4::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .social-links {
+    text-align: center;
+  }
+}
