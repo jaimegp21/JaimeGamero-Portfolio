@@ -613,15 +613,20 @@ section {
 .mobile-accordion {
   display: none;
 }
+/* Oculta el botón de hamburguesa en la vista de escritorio por defecto */
+.hamburger {
+  display: none;
+}
 /* ================================== */
 /* ESTILOS RESPONSIVE */
 /* ================================== */
 
 @media (max-width: 768px) {
 
+  /* --- AJUSTES GENERALES --- */
   section {
     padding: 60px 20px; 
-    scroll-margin-top: 80px;
+    scroll-margin-top: 80px; 
   }
 
   /* --- HEADER Y MENÚ HAMBURGUESA --- */
@@ -630,28 +635,13 @@ section {
     justify-content: space-between;
     flex-direction: row;
   }
+  
+  /* Ocultamos la navegación normal en móvil */
   .nav {
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: rgba(17, 26, 36, 0.95);
-    backdrop-filter: blur(10px);
-    transition: right 0.3s ease-in-out;
-    z-index: 1000;
+    display: none;
   }
-  .nav ul {
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    padding-top: 100px;
-  }
-  .nav a {
-    font-size: 20px;
-    padding: 15px 0;
-  }
+
+  /* Mostramos el botón de hamburguesa en móvil */
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -664,6 +654,7 @@ section {
     padding: 0;
     z-index: 1001; 
   }
+
   .hamburger-line {
     width: 30px;
     height: 3px;
@@ -671,10 +662,30 @@ section {
     border-radius: 10px;
     transition: all 0.3s linear;
   }
-  .nav.nav-open {
+  
+  /* Estilos para el menú cuando se abre con JS */
+  .nav-open {
+    display: flex; 
+    position: fixed;
+    top: 0;
     right: 0;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(17, 26, 36, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
   }
-
+  .nav-open ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+  }
+  .nav-open a {
+    font-size: 20px;
+    padding: 15px 0;
+  }
+  
   /* --- SECCIÓN INICIO Y SOBRE MÍ --- */
   .contenido-inicio,
   .contenido-sobremi {
@@ -685,12 +696,8 @@ section {
   .texto-sobremi p {
     text-align: left; 
   }
-  .texto-inicio h1 {
-    font-size: 36px;
-  }
-  .texto-inicio h2 {
-    font-size: 24px;
-  }
+  .texto-inicio h1 { font-size: 36px; }
+  .texto-inicio h2 { font-size: 24px; }
 
   /* --- CURRÍCULUM: OCULTAR TIMELINE Y MOSTRAR ACORDEÓN --- */
   .desktop-timeline { display: none; }
@@ -724,9 +731,4 @@ section {
     left: 50%;
     transform: translateX(-50%);
   }
-}
-
-/* Ocultar el menú de hamburguesa en escritorio */
-.hamburger {
-  display: none;
 }
