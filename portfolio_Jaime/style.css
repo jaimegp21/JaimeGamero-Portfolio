@@ -514,3 +514,96 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --- ESTILOS FOOTER --- */
+.footer {
+  background-color: #111a24;
+  padding: 60px 0 20px 0;
+  color: #ccc;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 25px;
+  font-weight: 600;
+  position: relative;
+}
+
+/* Línea decorativa debajo de los títulos del footer */
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #00ffff;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-about {
+  line-height: 1.8;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #00ffff;
+  padding-left: 8px;
+}
+
+.social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.social-links a:hover {
+  color: #111a24;
+  background-color: #00ffff;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
