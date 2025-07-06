@@ -1,4 +1,3 @@
-
 html {
   scroll-behavior: smooth;
 }
@@ -17,7 +16,6 @@ body {
 }
 
 /* HEADER */
-/* REEMPLAZA TU .header ACTUAL POR ESTE */
 .header {
   position: fixed;
   width: 100%;
@@ -27,11 +25,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  
-  /* --- LA MAGIA ESTÁ AQUÍ --- */
-  background-color: rgba(22, 38, 53, 0.8); /* Un azul ligeramente más claro y más translúcido */
-  backdrop-filter: blur(10px); /* El efecto de desenfoque "cristal" */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Un borde inferior muy sutil para definirlo */
+  background-color: rgba(22, 38, 53, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
@@ -107,6 +103,7 @@ body {
   transform: scale(1.05);
 }
 
+/* SECCIÓN SOBRE MÍ */
 .sobremi {
   padding: 100px 20px;
   background-color: #111a24;
@@ -157,11 +154,13 @@ body {
   transform: scale(1.03);
 }
 
+/* --- SECCIÓN SKILLS --- */
 section {
-  scroll-margin-top: 100px; /* Ajuste suave para anclar sin que tape el header */
+  scroll-margin-top: 100px;
 }
+
 .skills {
-  padding: 100px 20px;
+  padding: 100px 0; /* Reducimos padding lateral para dar espacio al efecto de máscara */
   background-color: #0e1a24;
   color: white;
   text-align: center;
@@ -172,24 +171,21 @@ section {
   color: #00ffff;
   margin-bottom: 40px;
 }
+
 .contenido-skills {
-  overflow: hidden; /* Oculta el desbordamiento del carrusel */
+  overflow: hidden;
   position: relative;
-  /* Efecto de difuminado en los bordes para que no se vea el corte */
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
- 
 .carrusel-skills {
   display: inline-flex;
   gap: 40px;
-  padding-bottom: 20px; /* espacio inferior */
-  /* Animacion de autoscroll*/
+  padding-bottom: 20px;
   animation: scroll 40s linear infinite;
 }
 
-/* El carrusel se pausa cuando el ratón está encima */
 .carrusel-skills:hover {
   animation-play-state: paused;
 }
@@ -199,10 +195,10 @@ section {
     transform: translateX(0);
   }
   to {
-    /* Movemos el carrusel la mitad de su ancho total (la primera copia de logos) */
     transform: translateX(-50%);
   }
 }
+
 .slide {
   width: 160px;
   height: 180px;
@@ -211,11 +207,10 @@ section {
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-  scroll-snap-align: center;
   background-color: #1a2c3a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 20px 20px 15px 20px; /* Ajustamos un poco el padding inferior */
+  padding: 20px 20px 15px 20px;
   text-align: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -225,7 +220,6 @@ section {
   background-color: #21394a;
 }
 
-/* --- ESTILOS PARA LOS ELEMENTOS DENTRO DE LA TARJETA --- */
 .slide img {
   width: 80px;
   height: 80px;
@@ -237,41 +231,25 @@ section {
   font-size: 16px;
   margin: 0;
   color: #ccc;
-  /* Damos una altura mínima al párrafo para evitar saltos de tamaño si un texto ocupa dos líneas */
   min-height: 40px; 
-}
-
-.slide a {
-  color: #00ffff;
-  text-decoration: none;
-}
-
-.slide a:hover {
-  text-decoration: underline;
 }
 
 /* --- ESTILOS PARA LA BARRA DE SKILLS --- */
 .skill-bar-container {
-  width: 80%; /* Ancho de la barra contenedora */
+  width: 80%;
   height: 8px;
-  background-color: rgba(0, 0, 0, 0.3); /* Color de fondo de la barra */
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  margin-top: auto; /* Empuja la barra hacia abajo */
-  overflow: hidden; /* Asegura que el contenido no se salga de los bordes redondeados */
+  overflow: hidden;
 }
 
 .skill-bar-progress {
   height: 100%;
   border-radius: 10px;
-  /* El gradiente que te comenté para un look más pro */
   background: linear-gradient(90deg, #007B7B 0%, #00FFFF 100%);
-  /* Animación suave al cargar */
-  transform: scaleX(0);
-  transform-origin: left;
   animation: fillBar 1.5s 0.5s forwards ease-in-out;
 }
 
-/* Animación para que la barra se llene */
 @keyframes fillBar {
   to {
     transform: scaleX(1);
@@ -281,7 +259,7 @@ section {
 /* --- ESTILOS PARA LA SECCIÓN CURRÍCULUM --- */
 .curriculum {
   padding: 100px 20px;
-  background-color: #111a24; /* Un fondo ligeramente distinto para separar secciones */
+  background-color: #111a24;
   color: white;
   text-align: center;
 }
@@ -292,14 +270,12 @@ section {
   margin-bottom: 60px;
 }
 
-/* --- ESTILOS DE LA LÍNEA DE TIEMPO (TIMELINE) --- */
 .timeline {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* La línea central de la timeline */
 .timeline::after {
   content: '';
   position: absolute;
@@ -317,7 +293,6 @@ section {
   width: 50%;
 }
 
-/* El círculo en la línea de tiempo */
 .timeline-item::after {
   content: '';
   position: absolute;
@@ -331,7 +306,6 @@ section {
   z-index: 1;
 }
 
-/* Posicionamiento de los items a la izquierda y derecha */
 .timeline-item:nth-child(odd) {
   left: 0;
 }
@@ -340,12 +314,10 @@ section {
   left: 50%;
 }
 
-/* Ajuste del círculo para los items de la izquierda */
 .timeline-item:nth-child(even)::after {
   left: -10px;
 }
 
-/* Contenido de cada item */
 .timeline-content {
   padding: 20px 30px;
   background-color: #1a2c3a;
@@ -414,7 +386,7 @@ section {
 /* --- ESTILOS SECCIÓN PORTFOLIO --- */
 .portfolio {
   padding: 100px 20px;
-  background-color: #0e1a24; /* Mismo fondo que el body */
+  background-color: #0e1a24;
 }
 
 .contenido-portfolio h2 {
@@ -453,14 +425,14 @@ section {
   width: 100%;
   height: 200px;
   object-fit: contain;
-  background-color: #0e1a24; /* Color de fondo por si la imagen no carga */
+  background-color: #0e1a24;
 }
 
 .proyecto-info {
   padding: 20px 25px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Hace que este contenedor ocupe el espacio disponible */
+  flex-grow: 1;
 }
 
 .proyecto-info h3 {
@@ -483,7 +455,7 @@ section {
   font-size: 16px;
   color: #ccc;
   line-height: 1.6;
-  flex-grow: 1; /* Empuja las tecnologías hacia abajo */
+  flex-grow: 1;
 }
 
 .tecnologias {
@@ -500,20 +472,6 @@ section {
   border-radius: 50px;
   font-size: 12px;
   font-weight: 600;
-}
-
-.proyecto-card.coming-soon {
-  cursor: default;
-}
-
-.proyecto-card.coming-soon:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.proyecto-card.coming-soon .proyecto-info {
-  text-align: center;
-  justify-content: center;
 }
 
 /* --- ESTILOS PARA ANIMACIÓN DE SCROLL --- */
@@ -558,7 +516,6 @@ section {
   position: relative;
 }
 
-/* Línea decorativa debajo de los títulos del footer */
 .footer-col h4::before {
   content: '';
   position: absolute;
@@ -621,67 +578,19 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
 /* Ocultar el acordeón en escritorio por defecto */
 .mobile-accordion {
   display: none;
 }
+
 /* Oculta el botón de hamburguesa en la vista de escritorio por defecto */
 .hamburger {
   display: none;
 }
 
-/* --- ESTILOS PARA LA NAVEGACIÓN DEL CARRUSEL DE SKILLS --- */
-.skills-carousel-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  max-width: 1100px; /* Limita el ancho en pantallas grandes */
-  margin: 0 auto;
-}
-
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(26, 44, 58, 0.8); /* Mismo color que las tarjetas */
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.nav-arrow:hover {
-  background-color: #00ffff;
-  color: #0e1a24;
-  transform: translateY(-50%) scale(1.1);
-}
-
-#prev-skill {
-  left: -20px;
-}
-
-#next-skill {
-  right: -20px;
-}
-
-/* Estilo para cuando una flecha está deshabilitada (al llegar al final) */
-.nav-arrow:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  transform: translateY(-50%);
-}
-
-/* ESTILOS RESPONSIVE */
-
+/* ================================== */
+/* ESTILOS RESPONSIVE (VERSIÓN FINAL) */
+/* ================================== */
 @media (max-width: 768px) {
 
   /* --- AJUSTES GENERALES --- */
@@ -697,12 +606,10 @@ section {
     flex-direction: row;
   }
   
-  /* Ocultamos la navegación normal en móvil */
   .nav {
     display: none;
   }
 
-  /* Mostramos el botón de hamburguesa en móvil */
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -724,7 +631,6 @@ section {
     transition: all 0.3s linear;
   }
   
-  /* Estilos para el menú cuando se abre con JS */
   .nav-open {
     display: flex; 
     position: fixed;
@@ -736,12 +642,14 @@ section {
     backdrop-filter: blur(10px);
     z-index: 1000;
   }
+
   .nav-open ul {
     flex-direction: column;
     width: 100%;
     text-align: center;
     padding-top: 100px;
   }
+
   .nav-open a {
     font-size: 20px;
     padding: 15px 0;
@@ -773,11 +681,6 @@ section {
   .accordion-company { font-style: italic; margin-bottom: 10px; }
   .accordion-content ul { list-style: disc; padding-left: 20px; }
   
-  /* --- SKILLS --- */
-  .carrusel-skills {
-    justify-content: flex-start;
-  }
-  
   /* --- PORTFOLIO --- */
   .proyectos-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -796,9 +699,9 @@ section {
 
 /* ESTILOS PARA EL CURSOR DEL CARRUSEL */
 .carrusel-skills {
-  cursor: grab; /* Muestra una mano para indicar que se puede arrastrar */
+  cursor: grab;
 }
 
 .carrusel-skills:active {
-  cursor: grabbing; /* Muestra la mano cerrada mientras se está arrastrando */
+  cursor: grabbing;
 }
