@@ -28,3 +28,60 @@ navLinks.forEach(link => {
     hamburger.classList.remove('hamburger-open');
   });
 });
+
+//CARRUSEL DE SKILLS AUTOMÁTICO 
+
+// Esperamos a que todo el contenido de la página se cargue
+document.addEventListener('DOMContentLoaded', () => {
+
+  const carousel = document.querySelector('.carrusel-skills');
+  if (!carousel) return; // Si no existe el carrusel, no hacemos nada
+
+  let scrollInterval;
+  let resumeTimeout;
+  const scrollSpeed = 1; 
+  const resumeDelay = 3000; 
+
+  // Función que inicia el movimiento automático
+  const startAutoScroll = () => {
+    // Si ya hay un intervalo, lo limpiamos para evitar que se acelere
+    clearInterval(scrollInterval);
+
+    scrollInterval = setInterval(() => {
+      
+      if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+        carousel.scrollLeft = 0;
+      } else {
+        carousel.scrollLeft += scrollSpeed;
+      }
+    }, 20); // Intervalo de tiempo para un movimiento suave 
+  };
+
+  // Función para detener el movimiento
+  const stopAutoScroll = () => {
+    clearInterval(scrollInterval);
+    clearTimeout(resumeTimeout);
+  };
+
+  // Función para reanudar el movimiento después de una pausa
+  const resumeAutoScroll = () => {
+    clearTimeout(resumeTimeout);
+    resumeTimeout = setTimeout(() => {
+      startAutoScroll();
+    }, resumeDelay);
+  };
+
+
+  // Para el ratón del ordenador
+  carousel.addEventListener('mouseenter', stopAutoScroll);
+  carousel.addEventListener('mouseleave', resumeAutoScroll);
+
+  // Para dispositivos táctiles
+  carousel.addEventListener('touchstart', stopAutoScroll, { passive: true });
+  carousel.addEventListener('touchend', resumeAutoScroll);
+  carousel.addEventListener('touchcancel', resumeAutoScroll);
+
+
+  startAutoScroll();
+
+});

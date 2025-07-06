@@ -186,23 +186,18 @@ section {
   display: none; /* oculta scroll barra */
 }
 .slide {
-  /* --- ESTABLECEMOS TAMAÑO FIJO --- */
-  width: 160px;   /* Ancho fijo para todas las tarjetas */
-  height: 180px;  /* Alto fijo para todas las tarjetas */
-
-  /* --- ORGANIZACIÓN INTERNA CON FLEXBOX --- */
+  width: 160px;
+  height: 180px;
   display: flex;
-  flex-direction: column; /* Apila los elementos (imagen y texto) en vertical */
-  justify-content: flex-start; /* ALINEA EL CONTENIDO ARRIBA para dejar espacio a la barra */
-  align-items: center;   /* Centra el contenido horizontalmente */
-
-  /* --- ESTILOS VISUALES --- */
-  flex-shrink: 0; 
+  flex-direction: column;
+  justify-content: space-between; /* <-- CAMBIADO: Distribuye el espacio verticalmente */
+  align-items: center;
+  flex-shrink: 0;
   scroll-snap-align: center;
   background-color: #1a2c3a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 20px;
+  padding: 20px 20px 15px 20px; /* Ajustamos un poco el padding inferior */
   text-align: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -214,10 +209,10 @@ section {
 
 /* --- ESTILOS PARA LOS ELEMENTOS DENTRO DE LA TARJETA --- */
 .slide img {
-  width: 70px;  /* Ajustamos un poco el tamaño si es necesario */
-  height: 70px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-  margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+  margin-bottom: 10px;
 }
 
 .slide p {
@@ -731,4 +726,13 @@ section {
     left: 50%;
     transform: translateX(-50%);
   }
+}
+
+/* ESTILOS PARA EL CURSOR DEL CARRUSEL */
+.carrusel-skills {
+  cursor: grab; /* Muestra una mano para indicar que se puede arrastrar */
+}
+
+.carrusel-skills:active {
+  cursor: grabbing; /* Muestra la mano cerrada mientras se está arrastrando */
 }
