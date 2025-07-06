@@ -183,7 +183,7 @@ section {
   display: inline-flex;
   gap: 40px;
   padding-bottom: 20px;
-  animation: scroll 40s linear infinite;
+  animation: scroll 25s linear infinite;
 }
 
 .carrusel-skills:hover {
