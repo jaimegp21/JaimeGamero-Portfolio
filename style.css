@@ -172,25 +172,43 @@ section {
   color: #00ffff;
   margin-bottom: 40px;
 }
-
-/* Y ajustamos el contenedor para que se vea mejor */
-.carrusel-skills {
-  display: flex;
-  overflow-x: auto;
-  justify-content: flex-start; 
-  scroll-snap-type: x mandatory;
-  gap: 30px;
-  padding: 20px; 
+.contenido-skills {
+  overflow: hidden; /* Oculta el desbordamiento del carrusel */
+  position: relative;
+  /* Efecto de difuminado en los bordes para que no se vea el corte */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
-.carrusel-skills::-webkit-scrollbar {
-  display: none; /* oculta scroll barra */
+
+ 
+.carrusel-skills {
+  display: inline-flex;
+  gap: 40px;
+  padding-bottom: 20px; /* espacio inferior */
+  /* Animacion de autoscroll*/
+  animation: scroll 40s linear infinite;
+}
+
+/* El carrusel se pausa cuando el ratón está encima */
+.carrusel-skills:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Movemos el carrusel la mitad de su ancho total (la primera copia de logos) */
+    transform: translateX(-50%);
+  }
 }
 .slide {
   width: 160px;
   height: 180px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* <-- CAMBIADO: Distribuye el espacio verticalmente */
+  justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
   scroll-snap-align: center;
