@@ -177,9 +177,9 @@ section {
 .carrusel-skills {
   display: flex;
   overflow-x: auto;
-  justify-content: center;
+  justify-content: flex-start; 
   scroll-snap-type: x mandatory;
-  gap: 40px;
+  gap: 30px;
   padding: 20px; 
 }
 .carrusel-skills::-webkit-scrollbar {
@@ -612,9 +612,57 @@ section {
 .hamburger {
   display: none;
 }
-/* ================================== */
+
+/* --- ESTILOS PARA LA NAVEGACIÓN DEL CARRUSEL DE SKILLS --- */
+.skills-carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 1100px; /* Limita el ancho en pantallas grandes */
+  margin: 0 auto;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(26, 44, 58, 0.8); /* Mismo color que las tarjetas */
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-arrow:hover {
+  background-color: #00ffff;
+  color: #0e1a24;
+  transform: translateY(-50%) scale(1.1);
+}
+
+#prev-skill {
+  left: -20px;
+}
+
+#next-skill {
+  right: -20px;
+}
+
+/* Estilo para cuando una flecha está deshabilitada (al llegar al final) */
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%);
+}
+
 /* ESTILOS RESPONSIVE */
-/* ================================== */
 
 @media (max-width: 768px) {
 
