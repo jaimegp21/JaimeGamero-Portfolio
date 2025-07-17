@@ -31,4 +31,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Lógica para el envío del formulario en segundo plano
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevenimos el comportamiento por defecto (recargar la página)
+
+      const form = e.target;
+      const data = new FormData(form);
+      
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // Si el envío fue exitoso
+          formStatus.innerHTML = "¡Gracias por tu mensaje! Ha sido enviado correctamente.";
+          formStatus.className = 'success';
+          form.reset(); // Limpiamos los campos del formulario
+        } else {
+          // Si hubo un problema en el servidor de Formspree
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+            } else {
+              formStatus.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
+            }
+            formStatus.className = 'error';
+          })
+        }
+      }).catch(error => {
+        // Si hubo un problema de red
+        formStatus.innerHTML = "Oops! Hubo un problema de red al enviar tu formulario.";
+        formStatus.className = 'error';
+      });
+    });
+  }
+
 });

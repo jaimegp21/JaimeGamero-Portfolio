@@ -20,6 +20,7 @@
       <li><a href="#skills" class="nav-link">SKILLS</a></li>
       <li><a href="#curriculum" class="nav-link">CURRÍCULUM</a></li>
       <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+      <li><a href="#contacto" class="nav-link">CONTACTO</a></li>
     </ul>
   </nav>
   <button class="hamburger" id="hamburger-btn">
@@ -266,6 +267,69 @@
         </div>
       </a>
 
+      <a href="https://github.com/jaimegp21/descargador-pro" target="_blank" class="proyecto-card">
+        <img src="fuentes/descargador.PNG" alt="Captura del descargador de videos">
+        <div class="proyecto-info">
+          <h3>Descargador Pro <i class="fab fa-github"></i></h3>
+          <p>Aplicación de escritorio moderna y sencilla para descargar vídeos y audio de YouTube, desarrollada con Python y Tkinter.</p>
+          <div class="tecnologias">
+            <span>Python</span>
+            <span>Tkinter</span>
+            <span>InnoSetup</span>
+            <span>YT-dlp</span>
+            <span>PyInstaller</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto hidden-section">
+  <div class="contenido-contacto">
+    <div class="info-columna">
+      <h2>¿Interesad@ en trabajar juntos?</h2>
+      <p class="subtitulo-contacto">
+        Me apasiona construir soluciones eficientes y estoy listo para aportar valor a un equipo dinámico. Si tienes un proyecto en mente o crees que mi perfil encaja en tu empresa, me encantaría que hablemos.
+      </p>
+      <div class="datos-contacto">
+        <div class="dato-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:jaimegameroperez@gmail.com">jaimegameroperez@gmail.com</a>
+        </div>
+        <div class="dato-item">
+          <i class="fas fa-phone"></i>
+          <span>625 22 37 74</span>
+        </div>
+        <div class="dato-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/jaime-gamero-p%C3%A9rez-b438292a5/" target="_blank">LinkedIn</a>
+        </div>
+        <div class="dato-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/jaimegp21" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-columna">
+      <form id="contact-form" action="https://formspree.io/f/xjkovnng" method="POST">
+        <div class="form-grupo">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-grupo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-grupo">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+        <div id="form-status"></div>
+      </form>
     </div>
   </div>
 </section>
