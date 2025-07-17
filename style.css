@@ -79,7 +79,6 @@ body {
 
 .texto-inicio h2 {
   font-size: 32px;
-  color: #00ffff;
   margin-bottom: 20px;
 }
 
@@ -123,12 +122,13 @@ body {
 .texto-sobremi {
   flex: 1;
   min-width: 300px;
+  text-align: center;
 }
 
 .texto-sobremi h2 {
   font-size: 36px;
-  color: #00ffff;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .texto-sobremi p {
@@ -168,7 +168,6 @@ section {
 
 .contenido-skills h2 {
   font-size: 36px;
-  color: #00ffff;
   margin-bottom: 40px;
 }
 
@@ -274,7 +273,6 @@ section {
 
 .contenido-curriculum h2 {
   font-size: 36px;
-  color: #00ffff;
   margin-bottom: 60px;
 }
 
@@ -365,7 +363,41 @@ section {
 .timeline-content ul li {
   margin-bottom: 5px;
 }
+/* ESTILO UNIFICADO PARA TÍTULOS DE SECCIÓN */
+/* Centramos el contenedor de los títulos que lo necesiten */
+.contenido-skills, .contenido-curriculum, .contenido-portfolio, .contacto {
+    text-align: center;
+}
 
+.contenido-inicio h2,
+.contenido-sobremi h2,
+.contenido-skills h2,
+.contenido-curriculum h2,
+.contenido-portfolio h2,
+.info-columna h2 {
+  color: white; 
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+/* línea decorativa cian (con ancho dinámico) */
+.contenido-inicio h2::after,
+.contenido-sobremi h2::after,
+.contenido-skills h2::after,
+.contenido-curriculum h2::after,
+.contenido-portfolio h2::after,
+.info-columna h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background-color: #00ffff;
+  border-radius: 2px;
+}
 /* --- ESTILOS DEL BOTÓN DE DESCARGA --- */
 .descarga-cv {
   margin-top: 60px;
@@ -400,7 +432,6 @@ section {
 .contenido-portfolio h2 {
   text-align: center;
   font-size: 36px;
-  color: #00ffff;
   margin-bottom: 60px;
 }
 
@@ -622,7 +653,6 @@ section {
 
 .info-columna h2 {
   font-size: 36px;
-  color: #00ffff;
   margin-bottom: 20px;
 }
 
